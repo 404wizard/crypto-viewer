@@ -5,15 +5,20 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "404wizard",
   "license": "ISC",
   "dependencies": {
+    "@moralisweb3/common-evm-utils": "^2.27.2",
+    "@moralisweb3/common-sol-utils": "^2.27.2",
+    "@moralisweb3/evm-utils": "^2.27.2",
     "axios": "^1.7.9",
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "moralis": "^2.7.4"
   }
 }
