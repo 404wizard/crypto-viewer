@@ -79,6 +79,9 @@ web_modules/
 .env.production.local
 .env.local
 
+# Misc Files
+*.rtf
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache

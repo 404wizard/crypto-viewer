@@ -11,12 +11,12 @@
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="main-container mb-5">
         <div class="main-block">
             <div class="mb-5 mt-4" style="text-align: center;">
                 <img src="images/cv-logo.svg" style="margin-left: -15px;" height="110px" alt="Crypto Viewer logo">
             </div>
-            <form class="row" action="/search" method="GET">
+            <form class="row" action="/search" method="POST">
                 <div class="ps-1 mb-3 col-10">
                     <input type="text" class="form-control form-control-lg" id="text-input" name="walletadd" placeholder="Enter Wallet Address">
                 </div>
@@ -25,11 +25,31 @@
                 </div>
             </form>
         </div>
-        <div class="asset-block" style="z-index: -1; margin-top: -30px;">
-            <div class="mb-5 mt-4" style="text-align: center;">
-                <!-- Wallet Content -->
+
+        <% if (locals.content) { %>
+            <div class="asset-block" style="z-index: -1; margin-top: -30px;">
+                <div class="mb-3 mt-4" style="text-align: center;">
+                    <!-- Wallet Content -->
+                    <% content.result.forEach(asset => { %> 
+                        <div class="my-3 d-flex justify-content-between align-items-center align-content-center flex-row column-gap-3" style="height: 55px;">    
+                            <div class="d-inline-flex">
+                                <img src="<%= asset.logo %>" width="50px" height="50px">
+                            </div>
+                            <div class="flex-fill">
+                                <h2 class="token-name mb-0"><%= asset.name %></h2>
+                                <p class="token-symbol mb-0 text-black text-opacity-50"><%= asset.symbol %></p>
+                            </div>
+                            <div class="flex-row-reverse">
+                                <h2 class="token-quantity mb-0"><%= Number(asset.balance_formatted).toFixed(2) %></h2>
+                                <p class="token-value mb-0 text-black text-opacity-50">$<%= Number(asset.usd_value).toFixed(2) %></p>
+                            </div>
+                        </div>
+                    <% }); %> 
+                </div>
             </div>
-        </div>
+
+        <% }; %> 
+
     </div>
 </body>
 </html>

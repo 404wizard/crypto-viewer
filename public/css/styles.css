@@ -8,7 +8,7 @@ h1 {
     text-align: center;
 }
 
-.container {
+.main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,4 +30,34 @@ h1 {
     background-color: white;
     padding: 30px 40px 15px 40px;
     border-radius: 0px 0px 15px 15px;
+}
+
+.token-name {
+    font-family: "Inter", serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 1.15rem;
+}
+
+.token-symbol {
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.token-items {
+    height: 55px;
+}
+
+.token-quantity {
+    font-family: "Inter", serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 1.15rem;
+    text-align: right;
+}
+
+.token-value {
+    font-size: 0.9rem;
+    text-align: left;
+    text-align: right;
 }
