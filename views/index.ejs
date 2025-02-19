@@ -11,17 +11,17 @@
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="main-container mb-5">
+    <div class="container flex-column d-flex justify-content-center align-items-center mb-5 mt-4">
         <div class="main-block">
             <div class="mb-5 mt-4" style="text-align: center;">
-                <img src="images/cv-logo.svg" style="margin-left: -15px;" height="110px" alt="Crypto Viewer logo">
+                <img class="main-logo" src="images/cv-logo.svg" style="margin-left: -15px;" alt="Crypto Viewer logo">
             </div>
             <form class="row" action="/search" method="POST">
-                <div class="ps-1 mb-3 col-10">
+                <div class="mb-3 col-md-10">
                     <input type="text" class="form-control form-control-lg" id="text-input" name="walletadd" placeholder="Enter Wallet Address">
                 </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-lg btn-dark">Search</button>
+                <div class="col-md-2 d-grid d-md-flex">
+                    <button type="submit" class="btn btn-lg btn-dark" style="height: 48px;">Search</button>
                 </div>
             </form>
         </div>
@@ -48,6 +48,13 @@
                 </div>
             </div>
 
+        <% } else if (locals.error) { %> 
+            <div class="asset-block" style="z-index: -1; margin-top: -30px;">
+                <div class="mb-3 mt-4" style="text-align: center;">
+                    <!-- Wallet Content -->
+                    <p><%= locals.error %></p>
+                </div>
+            </div>
         <% }; %> 
 
     </div>

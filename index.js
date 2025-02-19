@@ -18,23 +18,30 @@ app.get("/", (req, res) => {
 });
 
 app.post("/search", async (req, res) => {
-    try {
-        const response = await axios.get(walletBalanceURL, {
-            headers: {
-                "x-api-key" : API_KEY,
-            },
-            params : {
-                "chain" : "0x89",
-                "exclude_spam": true,
-                "exclude_unverified_contracts": true,
-                "address" : req.body.walletadd,
-            }
-        });
-        
-        res.render("index.ejs", { content: response.data })
-      } catch (e) {
+    if (req.body.walletadd) {
+        try {
+            const response = await axios.get(walletBalanceURL, {
+                headers: {
+                    "x-api-key" : API_KEY,
+                },
+                params : {
+                    "chain" : "0x89",
+                    "exclude_spam": true,
+                    "exclude_unverified_contracts": true,
+                    "address" : req.body.walletadd,
+                }
+            });
+            
+            res.render("index.ejs", { content: response.data });
+        } catch (e) {
             console.error(e);
-      };
+            res.render("index.ejs", { error: e.message })
+        };        
+    } else {
+        res.render("index.ejs", { error: "You forgot to enter your wallet address. Try again!" });
+    }
+    
+
 });
 
 app.listen(port, () => {

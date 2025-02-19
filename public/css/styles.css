@@ -8,6 +8,10 @@ h1 {
     text-align: center;
 }
 
+.main-logo {
+    height: 110px;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -60,4 +64,34 @@ h1 {
     font-size: 0.9rem;
     text-align: left;
     text-align: right;
+}
+
+@media (max-width: 768px) {
+
+    /* CSS for screens below or equal to 768px wide */
+    .main-logo {
+        height: 95px;
+    }
+
+    .main-block {
+        width: 95%;
+    }
+
+    .asset-block {
+        width: 90%;
+    }
+}
+
+@media (max-width: 540px) {
+    .token-name .token-quantity {
+        font-size: 1rem;
+    }
+    
+    .token-symbol .token-value {
+        font-size: 0.8rem;
+    }
+    
+    .asset-block {
+        padding: 30px 25px 15px 25px;
+    }
 }
